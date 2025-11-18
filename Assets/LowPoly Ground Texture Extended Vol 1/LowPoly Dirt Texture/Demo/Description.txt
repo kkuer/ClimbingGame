@@ -1,0 +1,15 @@
+Description :
+
+8x material lowpoly ground texture
+
+Resolution : 2048x2048
+
+Inclued for each material :
+
+1x Diffuse
+1x height
+1x Normal
+
+Inclued in lowpoly style :
+
+Dirt ground x5, Dirt and pebble, Dirt and little rock, Dirt and rock
