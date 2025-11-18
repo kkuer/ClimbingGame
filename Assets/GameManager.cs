@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Leap;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> usedWalls = new List<GameObject>();
     public GameObject currentWall = null;
     public Transform parentObj;
+    public Slider playerSlider;
+
     public float fallspeed;
     public float fallspeedMin;
 
@@ -35,6 +38,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (playerSlider != null && playerSlider.value <= 0f)
+        {
+            fallspeed = 0f;
+        }
+
         if (gameStarted)
         {
             if (grabbingLeft == false && grabbingRight == false)

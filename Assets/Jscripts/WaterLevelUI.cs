@@ -10,11 +10,14 @@ public class WaterLevelUI : MonoBehaviour
     [Header("Slider handle RectTransform for overlap detection")]
     public RectTransform sliderHandle;
 
+    [Header("Maximum water height limit (EndPoint RectTransform)")]
+    public RectTransform endPoint;
+
     [Header("Water rising speed (UI pixels / second)")]
     public float riseSpeed = 50f;
 
     [Header("Required overlap time (seconds)")]
-    public float requiredOverlapTime = 10f;
+    public float requiredOverlapTime = 3f;
 
     [Header("GameOver scene name")]
     public string gameOverSceneName = "GameOver";
@@ -25,7 +28,6 @@ public class WaterLevelUI : MonoBehaviour
 
     private void Reset()
     {
-        // Try auto-locating RectTransform (optional)
         if (waterPanel == null)
             waterPanel = GetComponent<RectTransform>();
     }
@@ -34,9 +36,14 @@ public class WaterLevelUI : MonoBehaviour
     {
         if (waterPanel == null || sliderHandle == null) return;
 
-        // 1. Increase panel height upward
+        // ---------------------
+        // LIMIT MAX HEIGHT HERE
+        // ---------------------
         Vector2 size = waterPanel.sizeDelta;
+        float maxHeight = endPoint != null ? endPoint.sizeDelta.y : size.y;
+
         size.y += riseSpeed * Time.deltaTime;
+        size.y = Mathf.Min(size.y, maxHeight);
         waterPanel.sizeDelta = size;
 
         // 2. Detect overlap between water and slider handle
@@ -62,7 +69,7 @@ public class WaterLevelUI : MonoBehaviour
         }
         else
         {
-            _overlapTimer = 0f; // reset timer when no longer overlapping
+            _overlapTimer = 0f;
         }
     }
 
