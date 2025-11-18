@@ -303,6 +303,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 75382799368088159, guid: e7e358565e530214c97adba8c82fedc6, type: 3}
   m_PrefabInstance: {fileID: 843956592}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &218229514 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 9091317471554311228, guid: e7e358565e530214c97adba8c82fedc6, type: 3}
+  m_PrefabInstance: {fileID: 843956592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &362767474 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3562099561096152028, guid: 62a17f790fe898c4f83752aea5a60d4b, type: 3}
@@ -514,6 +519,11 @@ MonoBehaviour:
 --- !u!4 &401746234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1127402380299148798, guid: e7e358565e530214c97adba8c82fedc6, type: 3}
+  m_PrefabInstance: {fileID: 843956592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &434899537 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1867558777296241280, guid: e7e358565e530214c97adba8c82fedc6, type: 3}
   m_PrefabInstance: {fileID: 843956592}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &598942587 stripped
@@ -2313,6 +2323,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 884294504922575104, guid: 1f6dd9db14a3ef34389bffe77341063a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 111
+      objectReference: {fileID: 0}
     - target: {fileID: 3495414475382915803, guid: 1f6dd9db14a3ef34389bffe77341063a, type: 3}
       propertyPath: m_Name
       value: UI
@@ -2700,6 +2714,38 @@ PrefabInstance:
       propertyPath: rightStamColor
       value: 
       objectReference: {fileID: 1028406936}
+    - target: {fileID: 3680404195923287953, guid: 4c7a92e1501e1be4689e63b0cbe7da6e, type: 3}
+      propertyPath: leftHandRenderer
+      value: 
+      objectReference: {fileID: 218229514}
+    - target: {fileID: 3680404195923287953, guid: 4c7a92e1501e1be4689e63b0cbe7da6e, type: 3}
+      propertyPath: rightHandRenderer
+      value: 
+      objectReference: {fileID: 434899537}
+    - target: {fileID: 3680404195923287953, guid: 4c7a92e1501e1be4689e63b0cbe7da6e, type: 3}
+      propertyPath: leftHandFatigueColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680404195923287953, guid: 4c7a92e1501e1be4689e63b0cbe7da6e, type: 3}
+      propertyPath: leftHandFatigueColor.g
+      value: 0.79559743
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680404195923287953, guid: 4c7a92e1501e1be4689e63b0cbe7da6e, type: 3}
+      propertyPath: leftHandFatigueColor.r
+      value: 0.82069045
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680404195923287953, guid: 4c7a92e1501e1be4689e63b0cbe7da6e, type: 3}
+      propertyPath: rightHandFatigueColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680404195923287953, guid: 4c7a92e1501e1be4689e63b0cbe7da6e, type: 3}
+      propertyPath: rightHandFatigueColor.g
+      value: 0.79607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680404195923287953, guid: 4c7a92e1501e1be4689e63b0cbe7da6e, type: 3}
+      propertyPath: rightHandFatigueColor.r
+      value: 0.8235294
+      objectReference: {fileID: 0}
     - target: {fileID: 5440824704293242721, guid: 4c7a92e1501e1be4689e63b0cbe7da6e, type: 3}
       propertyPath: m_Name
       value: Player
