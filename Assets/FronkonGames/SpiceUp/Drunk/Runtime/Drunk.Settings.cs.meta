@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3b60b4493ff5a684291ef31984832548
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 247929
+  packageName: 'Spice Up: Drunk'
+  packageVersion: 2.1.3
+  assetPath: Assets/FronkonGames/SpiceUp/Drunk/Runtime/Drunk.Settings.cs
+  uploadId: 784560
