@@ -93,7 +93,11 @@ public class PlayerManager : MonoBehaviour
             
             if (staminaLeft <= 0f)
             {
+<<<<<<< Updated upstream
                 //leftHand.ForceReleaseFromStamina();
+=======
+                GameManager.Instance.grabbingLeft = false;
+>>>>>>> Stashed changes
             }
         }
         else
@@ -118,7 +122,11 @@ public class PlayerManager : MonoBehaviour
 
             if (staminaRight <= 0f)
             {
+<<<<<<< Updated upstream
                 //rightHand.ForceReleaseFromStamina();
+=======
+                GameManager.Instance.grabbingRight = false; 
+>>>>>>> Stashed changes
             }
         }
         else
