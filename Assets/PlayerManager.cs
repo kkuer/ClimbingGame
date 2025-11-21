@@ -154,6 +154,7 @@ public class PlayerManager : MonoBehaviour
             if (staminaLeft <= 0f)
             {
                 // leftHand.ForceReleaseFromStamina();
+                GameManager.Instance.grabbingRight = false;//
             }
         }
         else
@@ -173,12 +174,13 @@ public class PlayerManager : MonoBehaviour
             {
                 // GameManager.Instance.moveWorld(rightHand);
                 staminaRight -= Time.deltaTime * staminaLossRate;
-                staminaRight = Mathf.Max(staminaRight, 0f);
+                staminaRight = Mathf.Max(staminaRight, 0f);//
             }
 
             if (staminaRight <= 0f)
             {
                 // rightHand.ForceReleaseFromStamina();
+                GameManager.Instance.grabbingRight = false;
             }
         }
         else
