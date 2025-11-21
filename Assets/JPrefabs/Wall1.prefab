@@ -3659,7 +3659,6 @@ GameObject:
   - component: {fileID: 609179190049739707}
   - component: {fileID: 2774884807728671620}
   - component: {fileID: 329242376123332943}
-  - component: {fileID: 1870818456583132759}
   m_Layer: 0
   m_Name: WobbleRock
   m_TagString: Untagged
@@ -3929,37 +3928,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WobbleZRotation
   maxAngle: 10
-  wobbleSpeed: 2
-  intervalRange: {x: 2, y: 5}
-  wobbleDuration: 1.5
-  handEvents: {fileID: 0}
-  breakDuration: 3
-  forceReleaseLeftOnGrab: 1
-  forceReleaseRightOnGrab: 1
-  forceReleaseDelayLeft: 0.2
-  forceReleaseDelayRight: 0.2
---- !u!114 &1870818456583132759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2839245731301299499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e8194aaf2008e4393c2e0d4e2bfde9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WobbleZRotation
-  maxAngle: 10
   wobbleSpeed: 8
   intervalRange: {x: 2, y: 5}
   wobbleDuration: 1.5
   handEvents: {fileID: 0}
-  breakDuration: 2
+  breakDuration: 3
+  dropSpeed: 1
   forceReleaseLeftOnGrab: 1
   forceReleaseRightOnGrab: 1
-  forceReleaseDelayLeft: 0.6
-  forceReleaseDelayRight: 0.6
+  forceReleaseDelayLeft: 0.2
+  forceReleaseDelayRight: 0.2
 --- !u!1 &2865829469332929891
 GameObject:
   m_ObjectHideFlags: 0
@@ -4324,7 +4302,7 @@ GameObject:
   - component: {fileID: 7304873319402509109}
   - component: {fileID: 1602034004479595984}
   m_Layer: 0
-  m_Name: WobbleRock1
+  m_Name: SmallRock003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12478,11 +12456,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WobbleZRotation
   maxAngle: 10
-  wobbleSpeed: 2
+  wobbleSpeed: 8
   intervalRange: {x: 2, y: 5}
   wobbleDuration: 1.5
   handEvents: {fileID: 0}
   breakDuration: 3
+  dropSpeed: 1
   forceReleaseLeftOnGrab: 1
   forceReleaseRightOnGrab: 1
   forceReleaseDelayLeft: 0.2

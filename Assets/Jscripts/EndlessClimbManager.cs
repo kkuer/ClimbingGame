@@ -117,13 +117,13 @@ public class EndlessClimbManager : MonoBehaviour
 
         // ===== 3. Update UI texts =====
         if (playerHeightText != null)
-            playerHeightText.text = $"Player Height: {climbedHeight:F1} m";
+            playerHeightText.text = $"Your Height: {climbedHeight:F1} m";
 
         if (waterHeightText != null)
-            waterHeightText.text = $"Water Height: {waterHeight:F1} m";
+            waterHeightText.text = $"Water Level: {waterHeight:F1} m";
 
         if (gapText != null)
-            gapText.text = $"Gap: {gap:F1} m";
+            gapText.text = $"{gap:F1} m Left";
 
         // ===== 4. Check if water is above player =====
         if (waterTransform.position.y >= playerTransform.position.y)

@@ -3042,6 +3042,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097396971}
   m_CullTransparentMesh: 1
+--- !u!1 &329097152622886443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8733294125314727035, guid: 0a6894f71f828434abd6074c7c6f8136, type: 3}
+  m_PrefabInstance: {fileID: 1284220517158335107}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &547800523353984811 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3789513265362484037, guid: 0a6894f71f828434abd6074c7c6f8136, type: 3}
@@ -3318,7 +3323,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3392746100552839761, guid: 0a6894f71f828434abd6074c7c6f8136, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1433381959}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8733294125314727035, guid: 0a6894f71f828434abd6074c7c6f8136, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6274116549750764391}
   m_SourcePrefab: {fileID: 100100000, guid: 0a6894f71f828434abd6074c7c6f8136, type: 3}
 --- !u!1001 &1588973482825032272
 PrefabInstance:
@@ -3560,6 +3568,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3392746100552839761, guid: 0a6894f71f828434abd6074c7c6f8136, type: 3}
   m_PrefabInstance: {fileID: 1284220517158335107}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6274116549750764391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329097152622886443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e8194aaf2008e4393c2e0d4e2bfde9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WobbleZRotation
+  maxAngle: 10
+  wobbleSpeed: 8
+  intervalRange: {x: 1, y: 5}
+  wobbleDuration: 3
+  handEvents: {fileID: 0}
+  breakDuration: 3
+  dropSpeed: 5
+  forceReleaseLeftOnGrab: 1
+  forceReleaseRightOnGrab: 1
+  forceReleaseDelayLeft: 0.2
+  forceReleaseDelayRight: 0.2
 --- !u!1001 &7877889610286557522
 PrefabInstance:
   m_ObjectHideFlags: 0

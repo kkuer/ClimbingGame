@@ -15,22 +15,19 @@ public class WobbleZRotation : MonoBehaviour
     public PhysicalHandEvents handEvents;
     public float breakDuration = 3f;
 
+    [Header("Drop Motion")]
+    [Tooltip("Drop speed along -localZ for BOTH parent and child objects.")]
+    public float dropSpeed = 1.0f;
+
     [Header("Force Release Settings")]
-    [Tooltip("Whether grabbing with the left hand should trigger a force release.")]
     public bool forceReleaseLeftOnGrab = true;
-
-    [Tooltip("Whether grabbing with the right hand should trigger a force release.")]
     public bool forceReleaseRightOnGrab = true;
-
-    [Tooltip("Delay (in seconds) before forcing left hand release after it grabs.")]
     public float forceReleaseDelayLeft = 0f;
-
-    [Tooltip("Delay (in seconds) before forcing right hand release after it grabs.")]
     public float forceReleaseDelayRight = 0f;
 
     private Quaternion initialRotation;
 
-    // For restoring this Level-2 object relative to its parent
+    // Record: parent's (Level-2 object) original transform
     private Transform initialParent;
     private Vector3 initialLocalPosition;
     private Quaternion initialLocalRotation;
@@ -41,6 +38,9 @@ public class WobbleZRotation : MonoBehaviour
 
     private bool leftReleaseScheduled = false;
     private bool rightReleaseScheduled = false;
+
+    private bool leftWasGrabbing = false;
+    private bool rightWasGrabbing = false;
 
     private Collider[] ownColliders;
     private Renderer[] ownRenderers;
@@ -60,28 +60,23 @@ public class WobbleZRotation : MonoBehaviour
 
     private void Start()
     {
-        // Record own transform info (Level-2 object)
         initialRotation = transform.localRotation;
         initialParent = transform.parent;
         initialLocalPosition = transform.localPosition;
         initialLocalRotation = transform.localRotation;
 
         if (handEvents == null)
-        {
             handEvents = GetComponent<PhysicalHandEvents>();
-        }
 
         ownColliders = GetComponents<Collider>();
         ownRenderers = GetComponents<MeshRenderer>();
 
-        // Cache Level-3 rigidbodies
         Rigidbody[] allBodies = GetComponentsInChildren<Rigidbody>(true);
         foreach (var rb in allBodies)
         {
-            if (rb.gameObject == this.gameObject)
-                continue;
+            if (rb.gameObject == this.gameObject) continue;
 
-            ChildBodyInfo info = new ChildBodyInfo
+            childBodies.Add(new ChildBodyInfo
             {
                 rb = rb,
                 originalParent = rb.transform.parent,
@@ -90,9 +85,7 @@ public class WobbleZRotation : MonoBehaviour
                 originalLocalScale = rb.transform.localScale,
                 originalIsKinematic = rb.isKinematic,
                 originalUseGravity = rb.useGravity
-            };
-
-            childBodies.Add(info);
+            });
         }
 
         StartCoroutine(WobbleRoutine());
@@ -107,7 +100,6 @@ public class WobbleZRotation : MonoBehaviour
 
             yield return StartCoroutine(WobbleOnce());
 
-            // Break AFTER wobble ends if flagged
             if (shouldBreakAfterWobble && !isBreaking)
             {
                 yield return StartCoroutine(BreakApartRoutine());
@@ -122,6 +114,9 @@ public class WobbleZRotation : MonoBehaviour
         leftReleaseScheduled = false;
         rightReleaseScheduled = false;
 
+        leftWasGrabbing = handEvents != null && handEvents.leftHandGrabbing;
+        rightWasGrabbing = handEvents != null && handEvents.rightHandGrabbing;
+
         float t = 0f;
 
         while (t < wobbleDuration)
@@ -131,43 +126,44 @@ public class WobbleZRotation : MonoBehaviour
             float angle = Mathf.Sin(t * wobbleSpeed) * maxAngle;
             transform.localRotation = initialRotation * Quaternion.Euler(0, 0, angle);
 
-            if (handEvents != null &&
-                (handEvents.leftHandGrabbing || handEvents.rightHandGrabbing))
+            if (handEvents != null)
             {
-                // Mark to break after current wobble ends
-                shouldBreakAfterWobble = true;
+                bool leftNow = handEvents.leftHandGrabbing;
+                bool rightNow = handEvents.rightHandGrabbing;
 
-                // Schedule left hand force release
-                if (handEvents.leftHandGrabbing &&
-                    forceReleaseLeftOnGrab &&
-                    !leftReleaseScheduled)
+                // Grab start ¡ú schedule force release
+                if (!leftWasGrabbing && leftNow && forceReleaseLeftOnGrab && !leftReleaseScheduled)
                 {
                     leftReleaseScheduled = true;
                     StartCoroutine(ForceReleaseHandRoutine(true, forceReleaseDelayLeft));
                 }
 
-                // Schedule right hand force release
-                if (handEvents.rightHandGrabbing &&
-                    forceReleaseRightOnGrab &&
-                    !rightReleaseScheduled)
+                if (!rightWasGrabbing && rightNow && forceReleaseRightOnGrab && !rightReleaseScheduled)
                 {
                     rightReleaseScheduled = true;
                     StartCoroutine(ForceReleaseHandRoutine(false, forceReleaseDelayRight));
                 }
+
+                // Detect *release during wobble* ¡ú mark break
+                bool leftReleased = leftWasGrabbing && !leftNow;
+                bool rightReleased = rightWasGrabbing && !rightNow;
+
+                if (leftReleased || rightReleased)
+                {
+                    shouldBreakAfterWobble = true;
+                }
+
+                leftWasGrabbing = leftNow;
+                rightWasGrabbing = rightNow;
             }
 
             yield return null;
         }
 
-        // Reset local rotation after wobble
         transform.localRotation = initialRotation;
         isWobbling = false;
     }
 
-    /// <summary>
-    /// Force release a hand via GameManager after an optional delay.
-    /// isLeft == true -> left hand; false -> right hand.
-    /// </summary>
     IEnumerator ForceReleaseHandRoutine(bool isLeft, float delay)
     {
         if (delay > 0f)
@@ -175,14 +171,8 @@ public class WobbleZRotation : MonoBehaviour
 
         if (GameManager.Instance != null)
         {
-            if (isLeft)
-            {
-                GameManager.Instance.grabbingLeft = false;
-            }
-            else
-            {
-                GameManager.Instance.grabbingRight = false;
-            }
+            if (isLeft) GameManager.Instance.grabbingLeft = false;
+            else GameManager.Instance.grabbingRight = false;
         }
     }
 
@@ -191,89 +181,62 @@ public class WobbleZRotation : MonoBehaviour
         if (isBreaking) yield break;
         isBreaking = true;
 
-        // Disable own colliders and renderers
-        if (ownColliders != null)
+        // Disable own colliders & renderers (Level-2 object)
+        foreach (var col in ownColliders) if (col != null) col.enabled = false;
+        foreach (var ren in ownRenderers) if (ren != null) ren.enabled = false;
+
+        float elapsed = 0f;
+
+        while (elapsed < breakDuration)
         {
-            foreach (var col in ownColliders)
+            float dt = Time.deltaTime;
+            elapsed += dt;
+
+            // ---- Parent also drops along -local Z ----
+            Vector3 parentPos = transform.localPosition;
+            parentPos.z -= dropSpeed * dt;
+            transform.localPosition = parentPos;
+
+            // ---- Children drop along -local Z ----
+            foreach (var info in childBodies)
             {
-                if (col != null) col.enabled = false;
+                if (info.rb == null) continue;
+
+                Transform t = info.rb.transform;
+                Vector3 lp = t.localPosition;
+                lp.z -= dropSpeed * dt;
+                t.localPosition = lp;
             }
+
+            yield return null;
         }
 
-        if (ownRenderers != null)
-        {
-            foreach (var ren in ownRenderers)
-            {
-                if (ren != null) ren.enabled = false;
-            }
-        }
-
-        // Let child rigidbodies fall
-        for (int i = 0; i < childBodies.Count; i++)
-        {
-            var info = childBodies[i];
-            if (info.rb == null) continue;
-
-            info.rb.transform.SetParent(null, true);
-            info.rb.isKinematic = false;
-            info.rb.useGravity = true;
-
-            childBodies[i] = info;
-        }
-
-        // Wait before restoring
-        yield return new WaitForSeconds(breakDuration);
-
-        // Restore Level-2 object's transform relative to its parent
+        // ---- Restore parent transform ----
         if (initialParent != null)
-        {
             transform.SetParent(initialParent, false);
-        }
 
-        transform.localPosition = initialLocalPosition;   // relative to moving scene parent
+        transform.localPosition = initialLocalPosition;
         transform.localRotation = initialLocalRotation;
 
-        // Re-enable own colliders and renderers
-        if (ownColliders != null)
-        {
-            foreach (var col in ownColliders)
-            {
-                if (col != null) col.enabled = true;
-            }
-        }
+        // Restore own colliders & renderers
+        foreach (var col in ownColliders) if (col != null) col.enabled = true;
+        foreach (var ren in ownRenderers) if (ren != null) ren.enabled = true;
 
-        if (ownRenderers != null)
-        {
-            foreach (var ren in ownRenderers)
-            {
-                if (ren != null) ren.enabled = true;
-            }
-        }
-
-        // Restore child rigidbodies to original state
+        // ---- Restore children ----
         foreach (var info in childBodies)
         {
             if (info.rb == null) continue;
 
-            // Reset physics state
-            info.rb.linearVelocity = Vector3.zero;
-            info.rb.angularVelocity = Vector3.zero;
+            Transform t = info.rb.transform;
 
-            // Re-parent back (if originalParent lost, fall back to this wobble object)
             Transform targetParent = info.originalParent != null ? info.originalParent : transform;
-            info.rb.transform.SetParent(targetParent, false);
+            t.SetParent(targetParent, false);
 
-            // Child local position reset to (0,0,0) relative to its parent
-            info.rb.transform.localPosition = Vector3.zero;
+            t.localPosition = Vector3.zero;
+            t.localRotation = info.originalLocalRotation;
+            t.localScale = info.originalLocalScale;
 
-            // Restore local rotation (you can switch to identity if you prefer)
-            info.rb.transform.localRotation = info.originalLocalRotation;
-
-            // Restore relative size (local scale)
-            info.rb.transform.localScale = info.originalLocalScale;
-
-            // Restore kinematic & gravity
-            info.rb.isKinematic = true; // or info.originalIsKinematic if you want exact original
+            info.rb.isKinematic = info.originalIsKinematic;
             info.rb.useGravity = info.originalUseGravity;
         }
 
