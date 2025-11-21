@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public float fallspeed;
     public float fallspeedMin;
+    public float fallspeedMax;
 
     private Vector3 lastChildPosition;
     public bool gameStarted;
@@ -45,17 +46,21 @@ public class GameManager : MonoBehaviour
 
         if (gameStarted)
         {
-            if (grabbingLeft == false && grabbingRight == false)
+            if (grabbingLeft || grabbingRight)
             {
-                fallspeed += Time.deltaTime * 0.2f;
-                parentObj.Translate(0, fallspeed * Time.deltaTime, 0);
+                fallspeed = 0f;
             }
             else
             {
-                fallspeed = fallspeedMin;
+                fallspeed += Time.deltaTime * 0.2f;
             }
+
+            fallspeed = Mathf.Clamp(fallspeed, fallspeedMin, fallspeedMax);
+
+            parentObj.Translate(0f, fallspeed * Time.deltaTime, 0f);
         }
     }
+
 
     private void Start()
     {
