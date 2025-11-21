@@ -815,15 +815,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WobbleZRotation
   maxAngle: 10
-  wobbleSpeed: 2
+  wobbleSpeed: 8
   intervalRange: {x: 2, y: 5}
   wobbleDuration: 1.5
   handEvents: {fileID: 0}
   breakDuration: 3
+  dropSpeed: 1
   forceReleaseLeftOnGrab: 1
   forceReleaseRightOnGrab: 1
-  forceReleaseDelayLeft: 0.2
-  forceReleaseDelayRight: 0.2
+  forceReleaseDelayLeft: 0.01
+  forceReleaseDelayRight: 0.01
 --- !u!1 &519536555585478341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,7 +2690,6 @@ GameObject:
   - component: {fileID: 1518370630998248092}
   - component: {fileID: 6348804798847708610}
   - component: {fileID: 6791080587790282909}
-  - component: {fileID: 1819909768406117137}
   m_Layer: 0
   m_Name: Small_Rock_001 (2)
   m_TagString: Untagged
@@ -2764,33 +2764,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6989115367691825568, guid: 79430a3bac52fdf4883620bfa06b0a5b, type: 3}
---- !u!54 &1819909768406117137
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518370630998611644}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1553165797371211356
 GameObject:
   m_ObjectHideFlags: 0
@@ -3518,15 +3491,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WobbleZRotation
   maxAngle: 10
-  wobbleSpeed: 2
+  wobbleSpeed: 8
   intervalRange: {x: 2, y: 5}
   wobbleDuration: 1.5
   handEvents: {fileID: 0}
   breakDuration: 3
+  dropSpeed: 1
   forceReleaseLeftOnGrab: 1
   forceReleaseRightOnGrab: 1
-  forceReleaseDelayLeft: 0.2
-  forceReleaseDelayRight: 0.2
+  forceReleaseDelayLeft: 0.01
+  forceReleaseDelayRight: 0.01
 --- !u!1 &1777819701222869313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4432,15 +4406,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WobbleZRotation
   maxAngle: 10
-  wobbleSpeed: 2
+  wobbleSpeed: 8
   intervalRange: {x: 2, y: 5}
   wobbleDuration: 1.5
   handEvents: {fileID: 0}
   breakDuration: 3
+  dropSpeed: 1
   forceReleaseLeftOnGrab: 1
   forceReleaseRightOnGrab: 1
-  forceReleaseDelayLeft: 0.2
-  forceReleaseDelayRight: 0.2
+  forceReleaseDelayLeft: 0.01
+  forceReleaseDelayRight: 0.01
 --- !u!1 &2320186528361826461
 GameObject:
   m_ObjectHideFlags: 0
@@ -7935,6 +7910,7 @@ MonoBehaviour:
   wobbleDuration: 1.5
   handEvents: {fileID: 0}
   breakDuration: 3
+  dropSpeed: 1
   forceReleaseLeftOnGrab: 1
   forceReleaseRightOnGrab: 1
   forceReleaseDelayLeft: 0.2

@@ -3936,8 +3936,8 @@ MonoBehaviour:
   dropSpeed: 1
   forceReleaseLeftOnGrab: 1
   forceReleaseRightOnGrab: 1
-  forceReleaseDelayLeft: 0.2
-  forceReleaseDelayRight: 0.2
+  forceReleaseDelayLeft: 0.01
+  forceReleaseDelayRight: 0.01
 --- !u!1 &2865829469332929891
 GameObject:
   m_ObjectHideFlags: 0
@@ -12464,8 +12464,8 @@ MonoBehaviour:
   dropSpeed: 1
   forceReleaseLeftOnGrab: 1
   forceReleaseRightOnGrab: 1
-  forceReleaseDelayLeft: 0.2
-  forceReleaseDelayRight: 0.2
+  forceReleaseDelayLeft: 0.01
+  forceReleaseDelayRight: 0.01
 --- !u!1 &8794738374429316900
 GameObject:
   m_ObjectHideFlags: 0

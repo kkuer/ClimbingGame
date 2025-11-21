@@ -47,6 +47,7 @@ public class EndlessClimbManager : MonoBehaviour
     private float _currentWaterSpeed;
     private float _waterAboveTimer;
 
+
     private void Start()
     {
         // Validate references
@@ -132,6 +133,7 @@ public class EndlessClimbManager : MonoBehaviour
 
             if (_waterAboveTimer >= waterAboveDurationToLose)
             {
+                PlayerPrefs.SetFloat("HighestClimb", climbedHeight);
                 LoadEndScene();
             }
         }
