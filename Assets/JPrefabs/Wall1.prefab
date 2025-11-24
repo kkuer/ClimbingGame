@@ -10893,6 +10893,8 @@ Transform:
   - {fileID: 8428937955625797416}
   - {fileID: 6496439374800665477}
   - {fileID: 6553121568070834802}
+  - {fileID: 2607562290967641012}
+  - {fileID: 4797534276801910843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6775571192400207741
@@ -12822,3 +12824,151 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &1724467848120247257
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8252636847794393316}
+    m_Modifications:
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.077
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.079314284
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.552
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.14541017
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.26879197
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9203426
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.24408248
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -31.833
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 189.241
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 29.921
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842010304018495804, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_Name
+      value: Power-UpLiquor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+--- !u!4 &2607562290967641012 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+  m_PrefabInstance: {fileID: 1724467848120247257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8166471192033067094
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8252636847794393316}
+    m_Modifications:
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.162
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.132
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.552
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.14541017
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.26879197
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9203426
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.24408248
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -31.833
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 189.241
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 29.921
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842010304018495804, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+      propertyPath: m_Name
+      value: Power-UpLiquor (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+--- !u!4 &4797534276801910843 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3729374432760584301, guid: bdbbd57a8b416c4498f21c853b118343, type: 3}
+  m_PrefabInstance: {fileID: 8166471192033067094}
+  m_PrefabAsset: {fileID: 0}

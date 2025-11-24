@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca52dc65c92791641abb4a20efacdf21, type: 3}
   m_Name: Ocean Wave Profile
   m_EditorClassIdentifier: 
-  waveLengthMultiplier: 1
-  amplitudeMultiplier: 1
+  waveLengthMultiplier: 6.35
+  amplitudeMultiplier: 0.41
   steepnessMultiplier: 1
-  steepnessClamping: 0.197
+  steepnessClamping: 0
   waveLengthCurve:
     serializedVersion: 2
     m_Curve:
@@ -196,7 +196,7 @@ Texture2D:
   m_ColorSpace: 0
   m_PlatformBlob: 
   image data: 128
-  _typelessdata: 19149a43a7ba003c1914663e04c6003cf22e662e6b3d003c1914662eaac3003c992f6055104300004d314a5bc3be000019143343ad450000692f2f546e370000000000000000db30000000000000d13a000000000000a630000000000000fb12000000000000f62d000000000000742d0000000000003939000000000000a82f
+  _typelessdata: b80e084ea7ba003cb80e144904c6003cb22914396b3d003cb80e1439aac3003c3b2a446010430000592cc965c3be0000b80eb74dad450000132aa55e6e370000000000000000b231000000000000003c00000000000074310000000000001914000000000000ff2e000000000000662e000000000000213a0000000000007e30
   m_StreamData:
     serializedVersion: 2
     offset: 0

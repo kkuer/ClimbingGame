@@ -100,11 +100,11 @@ MonoBehaviour:
     drunkenness: 1
     remapMin: 0
     remapMax: 1
-    drunkSpeed: 1
-    drunkAmplitude: 0.75
-    swinging: 0.25
-    swingingSpeed: 2
-    distortion: 0.4
+    drunkSpeed: 1.3
+    drunkAmplitude: 1
+    swinging: 0.65
+    swingingSpeed: 2.1
+    distortion: 0.88
     distortionSpeed: 4
     distortionFrequency: 1
     aberration: 8

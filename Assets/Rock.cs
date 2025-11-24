@@ -15,6 +15,7 @@ public class Rock : MonoBehaviour
 
         if (left)
         {
+            Debug.Log("left");
             if (PlayerManager.Instance.isGrabbingLeft)
             {
                 GameManager.Instance.grabbingLeft = true;
